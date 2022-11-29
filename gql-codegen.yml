@@ -1,0 +1,16 @@
+overwrite: true
+hooks:
+  afterFileWrite:
+    - prettier --write
+watch: false
+generates:
+  src/graphql/generated.tsx:
+    schema:
+      - https://api-mumbai.lens.dev
+    documents:
+      - src/graphql/*.graphql
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+      - "typescript-apollo-client-helpers"
